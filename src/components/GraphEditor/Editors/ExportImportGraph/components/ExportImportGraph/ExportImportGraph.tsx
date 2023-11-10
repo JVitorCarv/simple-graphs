@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback } from 'react';
 import { useCy } from '../../../../../../providers/useCy';
 import InstructionBox from '../../../../EditorContainer/components/InstructionBox/InstructionBox';
 
-const ExportGraph: React.FC = () => {
+const ExportImportGraph: React.FC = () => {
     const cy = useCy();
 
     const handleExportClick = useCallback(() => {
@@ -18,7 +18,18 @@ const ExportGraph: React.FC = () => {
         document.body.removeChild(link);
     }, [cy]);
 
-   
+    const handleExportPngClick = useCallback(() => {
+        const pngContent = cy.current.png({output: 'blob', full: true, scale: 1});
+        const url = URL.createObjectURL(pngContent);
+    
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'graph.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }, [cy]);
+
     const handleFileChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
@@ -35,11 +46,12 @@ const ExportGraph: React.FC = () => {
 
     return (
         <>
-            <button onClick={handleExportClick}>Exportar gráfico</button>
+            <button onClick={handleExportClick}>Exportar JSON</button>
+            <button onClick={handleExportPngClick}>Exportar PNG</button>
             <input type="file" onChange={handleFileChange} />
-            <InstructionBox content="Graph Exported" />
+            <InstructionBox content="Choose to Upload or Export (JSON or SVG) " />
         </>
     );
 };
 
-export default ExportGraph;
+export default ExportImportGraph;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RenderIcon from '../../EditorContainer/components/RenderIcon/RenderIcon';
-import ExportGraph from './components/ExportGraph/ExportGraph';
+import ExportImportGraph from './components/ExportImportGraph/ExportImportGraph';
 
 const NodeEditor: React.FC = () => {
     const modeList: string[] = ['Export'];
@@ -17,7 +17,7 @@ const NodeEditor: React.FC = () => {
                     onClick={() => setMode(selectableMode)}
                 />
             ))}
-            {mode === 'Export' && <ExportGraph />}
+            {mode === 'Export' && <ExportImportGraph />}
         </>
     );
 };

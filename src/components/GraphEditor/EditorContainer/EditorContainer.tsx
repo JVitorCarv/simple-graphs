@@ -3,7 +3,7 @@ import { Container, SelectedModeContainer, Navbar, Title } from './styles';
 import { MainButton } from './components/MainButton/MainButton';
 import EdgeEditor from '../Editors/EdgeEditor/EdgeEditor';
 import NodeEditor from '../Editors/NodeEditor/NodeEditor';
-import ExportGraph from '../Editors/ExportGraph/ExportGraph';
+import ExportImportGraph from '../Editors/ExportImportGraph/ExportImportGraph';
 import ReturnArrow from './components/ReturnArrow/ReturnArrow';
 
 
@@ -30,13 +30,13 @@ const EditorContainer: React.FC = () => {
           <MainButton onClick={() => setMode('edge')}>Edge</MainButton>
         )}
         {mode === '' && (
-          <MainButton onClick={() => setMode('export')}>Export</MainButton>
+          <MainButton onClick={() => setMode('export-import')}>Export | Import</MainButton>
         )}
         <SelectedModeContainer>
           {displayArrow && <ReturnArrow onClick={() => setMode('')} />}
           {mode === 'node' && <NodeEditor />}
           {mode === 'edge' && <EdgeEditor />}
-          {mode === 'export' && <ExportGraph />}
+          {mode === 'export-import' && <ExportImportGraph />}
         </SelectedModeContainer>
       </Navbar>
     </Container>
