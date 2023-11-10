@@ -36,7 +36,7 @@ const EditorContainer: React.FC = () => {
           {displayArrow && <ReturnArrow onClick={() => setMode('')} />}
           {mode === 'node' && <NodeEditor />}
           {mode === 'edge' && <EdgeEditor />}
-          {mode === 'export-import' && <ExportImportGraph />}
+          {mode === 'export-import' && <ExportImportGraph />}         
         </SelectedModeContainer>
       </Navbar>
     </Container>

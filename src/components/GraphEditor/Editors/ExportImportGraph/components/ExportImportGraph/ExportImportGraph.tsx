@@ -48,7 +48,7 @@ const ExportImportGraph: React.FC = () => {
         <>
             <button onClick={handleExportClick}>Exportar JSON</button>
             <button onClick={handleExportPngClick}>Exportar PNG</button>
-            <input type="file" onChange={handleFileChange} />
+            <input type="file" accept=".json" onChange={handleFileChange} />
             <InstructionBox content="Choose to Upload or Export (JSON or SVG) " />
         </>
     );
