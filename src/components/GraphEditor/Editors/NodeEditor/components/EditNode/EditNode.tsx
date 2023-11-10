@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCy } from '../../../../../../providers/useCy';
 import InstructionBox from '../../../../EditorContainer/components/InstructionBox/InstructionBox';
-import { MainButton } from '../../../../EditorContainer/components/MainButton/MainButton';
+import { Button } from '../../../../EditorContainer/components/Button/Button';
 
 const EditNode: React.FC = () => {
     const cy = useCy();
@@ -45,7 +45,7 @@ const EditNode: React.FC = () => {
                         />
                     }
                     button={
-                        <MainButton onClick={addNewLabel}>Change</MainButton>
+                        <Button onClick={addNewLabel}>Change</Button>
                     }
                 />
             )}

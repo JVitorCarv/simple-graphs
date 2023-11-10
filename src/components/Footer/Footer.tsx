@@ -5,7 +5,8 @@ import CytoscapeLogo from '../../assets/cytoscape.png'
 import { useCy } from '../../providers/useCy'
 import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer, modalStyle } from './styles'
 import Modal from 'react-modal';
-import { SeconButton } from '../GraphEditor/EditorContainer/components/MainButton/MainButton'
+import { SeconButton } from '../GraphEditor/EditorContainer/components/Button/Button'
+import { Button } from '../GraphEditor/EditorContainer/components/Button/Button'
 
 
 const Footer: React.FC = () => {
@@ -82,8 +83,9 @@ const Footer: React.FC = () => {
                         <button onClick={closeModal} style={{float: 'right', border: 'none', background: 'transparent'}}>
                             X
                         </button>                        
-                        <SeconButton onClick={handleExportClick}>JSON</SeconButton>
-                        <SeconButton onClick={handleExportPngClick}>PNG</SeconButton>
+                        <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
+                        <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
+                        
                     </Modal>
                 <label>
                     <RenderIcon currentMode="file" mode="Import" onClick={handleFileChange}/>

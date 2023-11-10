@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, SelectedModeContainer, Navbar, Title } from './styles';
-import { MainButton } from './components/MainButton/MainButton';
+import { Button } from './components/Button/Button';
 import EdgeEditor from '../Editors/EdgeEditor/EdgeEditor';
 import NodeEditor from '../Editors/NodeEditor/NodeEditor';
 import ExportImportGraph from '../Editors/ExportImportGraph/ExportImportGraph';
@@ -24,10 +24,10 @@ const EditorContainer: React.FC = () => {
       <Title>Simple Graphs</Title>
       <Navbar>
         {mode === '' && (
-          <MainButton onClick={() => setMode('node')}>Node</MainButton>
+          <Button onClick={() => setMode('node')} variant='primary'>Node</Button>
         )}
         {mode === '' && (
-          <MainButton onClick={() => setMode('edge')}>Edge</MainButton>
+          <Button onClick={() => setMode('edge')} variant='primary'>Edge</Button>
         )}
         <SelectedModeContainer>
           {displayArrow && <ReturnArrow onClick={() => setMode('')} />}

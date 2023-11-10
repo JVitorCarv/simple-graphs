@@ -1,7 +1,7 @@
 import { useCy } from '../../../../../../providers/useCy';
 import { useEffect, useState } from 'react';
 import InstructionBox from '../../../../EditorContainer/components/InstructionBox/InstructionBox';
-import { MainButton } from '../../../../EditorContainer/components/MainButton/MainButton';
+import { Button } from '../../../../EditorContainer/components/Button/Button';
 import React from 'react';
 
 const EditEdge: React.FC = () => {
@@ -50,7 +50,7 @@ const EditEdge: React.FC = () => {
             />
           }
           button={
-            <MainButton onClick={editEdge}>Change</MainButton>
+            <Button onClick={editEdge}>Change</Button>
           }
         />
       )}
