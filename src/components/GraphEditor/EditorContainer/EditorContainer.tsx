@@ -29,14 +29,10 @@ const EditorContainer: React.FC = () => {
         {mode === '' && (
           <MainButton onClick={() => setMode('edge')}>Edge</MainButton>
         )}
-        {mode === '' && (
-          <MainButton onClick={() => setMode('export-import')}>Export | Import</MainButton>
-        )}
         <SelectedModeContainer>
           {displayArrow && <ReturnArrow onClick={() => setMode('')} />}
           {mode === 'node' && <NodeEditor />}
-          {mode === 'edge' && <EdgeEditor />}
-          {mode === 'export-import' && <ExportImportGraph />}         
+          {mode === 'edge' && <EdgeEditor />}       
         </SelectedModeContainer>
       </Navbar>
     </Container>

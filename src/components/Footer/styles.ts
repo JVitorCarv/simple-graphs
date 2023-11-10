@@ -27,3 +27,16 @@ export const LogoContainer = styled.img`
     object-fit: contain;
     fill: var(--colors-blue, #007AFF)
 `
+export const modalStyle = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#f0f0f0',
+        borderRadius: '10px',
+        padding: '20px',
+    },
+};      
