@@ -26,7 +26,7 @@ export const cyInitialStyle: cytoscape.Stylesheet[] = [
     {
       selector: 'export',
       style: {
-        'width': 6,
+        'width': 4,
         'line-color': '#00578a',
         'curve-style': 'bezier',
         'label': 'data(weight)',
