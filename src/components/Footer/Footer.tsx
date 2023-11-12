@@ -7,6 +7,8 @@ import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer, mod
 import Modal from 'react-modal';
 import { SeconButton } from '../GraphEditor/EditorContainer/components/Button/Button'
 import { Button } from '../GraphEditor/EditorContainer/components/Button/Button'
+import { FaTimes } from 'react-icons/fa';
+
 
 
 const Footer: React.FC = () => {
@@ -80,11 +82,18 @@ const Footer: React.FC = () => {
                         contentLabel="Export Modal"
                         style={modalStyle}
                     >
-                        <button onClick={closeModal} style={{float: 'right', border: 'none', background: 'transparent'}}>
-                            X
-                        </button>                        
-                        <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
-                        <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
+
+                        <IconsContainer onClick={closeModal} style={{marginTop:0}}>
+                           <FaTimes style={{ color: 'var(--colors-blue, #007AFF)', fontSize: 18}} />
+                        </IconsContainer>
+                        <IconsContainer>
+                            <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
+                        </IconsContainer>
+                        <IconsContainer>
+                        </IconsContainer>
+                            <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
+
+                        
                         
                     </Modal>
                 <label>
