@@ -5,9 +5,10 @@ import DeleteNode from './components/DeleteNode/DeleteNode';
 import EditNode from './components/EditNode/EditNode';
 import InstructionBox from '../../EditorContainer/components/InstructionBox/InstructionBox';
 import RenderIcon from '../../EditorContainer/components/RenderIcon/RenderIcon';
+import CheckAdjacency from './components/CheckAdjacency/CheckAdjacency';
 
 const NodeEditor: React.FC = () => {
-    const modeList: string[] = ['Add', 'Edit', 'Delete', 'Clean'];
+    const modeList: string[] = ['Add', 'Edit', 'Delete', 'Clean', 'Check Adjacency'];
 
     const [mode, setMode] = useState<string>('');
 
@@ -25,6 +26,7 @@ const NodeEditor: React.FC = () => {
             {mode === 'Delete' && <DeleteNode />}
             {mode === 'Clean' && <CleanNodes />}
             {mode === 'Edit' && <EditNode />}
+            {mode === 'Check Adjacency' && <CheckAdjacency />}
             {mode === '' && <InstructionBox content={"Select a mode"} />}
         </>
     );
