@@ -4,7 +4,8 @@ import GithubLogo from '../../assets/github.png'
 import CytoscapeLogo from '../../assets/cytoscape.png'
 import { useCy } from '../../providers/useCy'
 import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer } from './styles'
-import ExportModal from './components/modal/modalComponent'
+import ExportModal from './components/modal/ModalComponent'
+
 
 const Footer: React.FC = () => {
     const cy = useCy();
