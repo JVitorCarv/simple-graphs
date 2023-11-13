@@ -10,13 +10,11 @@ import { IconSpan } from '../GraphEditor/EditorContainer/components/IconSpan/Ico
 
 const Footer: React.FC = () => {
     const cy = useCy();
-
+    
     const [modalIsOpen, setModalIsOpen] = useState(false);
-
     const openModal = () => {
         setModalIsOpen(true);
     };
-
     const closeModal = () => {
         setModalIsOpen(false);
     };
@@ -65,11 +63,9 @@ const Footer: React.FC = () => {
             <IconsContainer>
                 <IconGroupContainer>
                     <a href="https://github.com/JVitorCarv/simple-graphs" target="_blank" rel="noopener noreferrer">
-                        <LogoContainer src={GithubLogo} />
-                    </a>
+                        <LogoContainer src={GithubLogo} /></a>
                     <a href="https://js.cytoscape.org/" target="_blank" rel="noopener noreferrer">
-                        <LogoContainer src={CytoscapeLogo} />
-                    </a>
+                        <LogoContainer src={CytoscapeLogo} /></a>
                 </IconGroupContainer>
                 <IconGroupContainer>
                     <RenderIcon currentMode="" mode="Export" onClick={openModal} />
@@ -84,6 +80,7 @@ const Footer: React.FC = () => {
                                 <IconsContainer>
                                     <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
                                 </IconsContainer>
+                    
                                 <IconsContainer>
                                     <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
                                 </IconsContainer>
@@ -91,7 +88,7 @@ const Footer: React.FC = () => {
                             <IconSpan 
                                 className='material-symbols-outlined' 
                                 onClick={closeModal} 
-                                style={{ position: 'absolute', display:'flex', right:'5%', top:'5%'}}>
+                                style={{ position: 'absolute', display:'flex', right:'20%', top:'5%' ,overflow: 'visible' }} >
                                 {'close'}
                             </IconSpan>
                         </div>
