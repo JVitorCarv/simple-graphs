@@ -11,7 +11,7 @@ const getBackgroundColor = (variant: string | undefined): string => {
       case 'secondary':
         return 'var(--fills-tertiary, rgba(0, 0, 0, 0.12))';
       default:
-        return 'orange';
+        return 'rgba(0, 122, 255, 0.15);';
     }
   };
 
@@ -22,7 +22,7 @@ const getBackgroundColor = (variant: string | undefined): string => {
       case 'secondary':
         return 'var(--colors-blue, #007AFF)';
       default:
-        return 'orange';
+        return 'rgba(0, 122, 255, 0.15);';
     }
   };
   

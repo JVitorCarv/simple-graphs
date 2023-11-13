@@ -5,13 +5,8 @@ import CytoscapeLogo from '../../assets/cytoscape.png'
 import { useCy } from '../../providers/useCy'
 import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer, modalStyle } from './styles'
 import Modal from 'react-modal';
-import { SeconButton } from '../GraphEditor/EditorContainer/components/Button/Button'
 import { Button } from '../GraphEditor/EditorContainer/components/Button/Button'
-import { FaTimes } from 'react-icons/fa';
 import { IconSpan } from '../GraphEditor/EditorContainer/components/IconSpan/IconSpan'
-import { position } from 'stylis'
-
-
 
 const Footer: React.FC = () => {
     const cy = useCy();
@@ -89,7 +84,6 @@ const Footer: React.FC = () => {
                                 <IconsContainer>
                                     <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
                                 </IconsContainer>
-                    
                                 <IconsContainer>
                                     <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
                                 </IconsContainer>
