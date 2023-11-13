@@ -9,6 +9,7 @@ import { SeconButton } from '../GraphEditor/EditorContainer/components/Button/Bu
 import { Button } from '../GraphEditor/EditorContainer/components/Button/Button'
 import { FaTimes } from 'react-icons/fa';
 import { IconSpan } from '../GraphEditor/EditorContainer/components/IconSpan/IconSpan'
+import { position } from 'stylis'
 
 
 
@@ -83,20 +84,23 @@ const Footer: React.FC = () => {
                         contentLabel="Export Modal"
                         style={modalStyle}
                     >
-
-                        <IconsContainer style={{margin:0}}> 
-                            <IconSpan className='material-symbols-outlined' onClick={closeModal} style={{margin:0}}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <div>
+                                <IconsContainer>
+                                    <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
+                                </IconsContainer>
+                    
+                                <IconsContainer>
+                                    <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
+                                </IconsContainer>
+                            </div>
+                            <IconSpan 
+                                className='material-symbols-outlined' 
+                                onClick={closeModal} 
+                                style={{ position: 'absolute', display:'flex', right:'5%', top:'5%'}}>
                                 {'close'}
                             </IconSpan>
-                        </IconsContainer>
-                        <IconsContainer>
-                            <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
-                        </IconsContainer>
-
-                        <IconsContainer>
-                            <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
-                        </IconsContainer>
-                        
+                        </div>
                     </Modal>
                 <label>
                     <RenderIcon currentMode="file" mode="Import" onClick={handleFileChange}/>
