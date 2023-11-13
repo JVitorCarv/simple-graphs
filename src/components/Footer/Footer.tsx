@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 import { SeconButton } from '../GraphEditor/EditorContainer/components/Button/Button'
 import { Button } from '../GraphEditor/EditorContainer/components/Button/Button'
 import { FaTimes } from 'react-icons/fa';
+import { IconSpan } from '../GraphEditor/EditorContainer/components/IconSpan/IconSpan'
 
 
 
@@ -83,15 +84,19 @@ const Footer: React.FC = () => {
                         style={modalStyle}
                     >
 
-                        <IconsContainer onClick={closeModal} style={{marginTop:0}}>
-                           <FaTimes style={{ color: 'var(--colors-blue, #007AFF)', fontSize: 18}} />
+                        <IconsContainer style={{margin:0}}> 
+                            <IconSpan className='material-symbols-outlined' onClick={closeModal} style={{margin:0}}>
+                                {'close'}
+                            </IconSpan>
                         </IconsContainer>
                         <IconsContainer>
                             <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
                         </IconsContainer>
+
                         <IconsContainer>
+                            <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
                         </IconsContainer>
-                            <Button onClick={handleExportPngClick} variant='secondary'>PNGGG</Button>
+                        
                     </Modal>
                 <label>
                     <RenderIcon currentMode="file" mode="Import" onClick={handleFileChange}/>
