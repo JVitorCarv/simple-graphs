@@ -80,7 +80,6 @@ const Footer: React.FC = () => {
                                 <IconsContainer>
                                     <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
                                 </IconsContainer>
-                    
                                 <IconsContainer>
                                     <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
                                 </IconsContainer>

@@ -22,7 +22,7 @@ const getBackgroundColor = (variant: string | undefined): string => {
       case 'secondary':
         return 'var(--colors-blue, #007AFF)';
       default:
-        return 'rgba(0, 122, 255, 0.15);';
+        return '#007AFF;';
     }
   };
   
