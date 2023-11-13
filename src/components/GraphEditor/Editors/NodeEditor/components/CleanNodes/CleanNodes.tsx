@@ -18,7 +18,7 @@ const CleanNodes: React.FC = () => {
             <InstructionBox
                 content={'Are you sure want to delete all nodes? This cannot be undone.'}
                 button={
-                    <Button onClick={deleteAllNodes}>Yes</Button>
+                    <Button onClick={deleteAllNodes} variant='primary'>Yes</Button>
                 }
             />
         </>

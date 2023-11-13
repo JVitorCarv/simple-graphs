@@ -86,7 +86,7 @@ const AddEdge: React.FC = () => {
                   <SliderBefore className="slider-before" />
                 </StyledSwitch>
               </SelectDirectionContainer>
-              <Button onClick={() => addEdge(directed)}>Add</Button>
+              <Button onClick={() => addEdge(directed)} variant='primary'>Add</Button>
             </>
           }
         />

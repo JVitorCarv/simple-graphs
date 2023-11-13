@@ -3,10 +3,8 @@ import RenderIcon from '../GraphEditor/EditorContainer/components/RenderIcon/Ren
 import GithubLogo from '../../assets/github.png'
 import CytoscapeLogo from '../../assets/cytoscape.png'
 import { useCy } from '../../providers/useCy'
-import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer, modalStyle } from './styles'
-import Modal from 'react-modal';
-import { Button } from '../GraphEditor/EditorContainer/components/Button/Button'
-import { IconSpan } from '../GraphEditor/EditorContainer/components/IconSpan/IconSpan'
+import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer } from './styles'
+import ExportModal from './components/modal/modalComponent'
 
 const Footer: React.FC = () => {
     const cy = useCy();
@@ -69,29 +67,12 @@ const Footer: React.FC = () => {
                 </IconGroupContainer>
                 <IconGroupContainer>
                     <RenderIcon currentMode="" mode="Export" onClick={openModal} />
-                    <Modal
-                        isOpen={modalIsOpen}
-                        onRequestClose={closeModal}
-                        contentLabel="Export Modal"
-                        style={modalStyle}
-                    >
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <div>
-                                <IconsContainer>
-                                    <Button onClick={handleExportClick} variant='secondary' >JSON</Button>
-                                </IconsContainer>
-                                <IconsContainer>
-                                    <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
-                                </IconsContainer>
-                            </div>
-                            <IconSpan 
-                                className='material-symbols-outlined' 
-                                onClick={closeModal} 
-                                style={{ position: 'absolute', display:'flex', right:'8%', top:'5%' ,overflow: 'visible' }} >
-                                {'close'}
-                            </IconSpan>
-                        </div>
-                    </Modal>
+                    <ExportModal 
+                        isOpen={modalIsOpen} 
+                        closeModal={closeModal} 
+                        handleExportClick={handleExportClick} 
+                        handleExportPngClick={handleExportPngClick} 
+                    />
                 <label>
                     <RenderIcon currentMode="file" mode="Import" onClick={handleFileChange}/>
                     <input type="file" accept=".json" onChange={handleFileChange} style={{display: 'none'}} />

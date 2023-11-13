@@ -45,7 +45,7 @@ const EditNode: React.FC = () => {
                         />
                     }
                     button={
-                        <Button onClick={addNewLabel}>Change</Button>
+                        <Button onClick={addNewLabel} variant='primary'>Change</Button>
                     }
                 />
             )}

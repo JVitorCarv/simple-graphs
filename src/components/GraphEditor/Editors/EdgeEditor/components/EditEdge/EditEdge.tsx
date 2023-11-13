@@ -50,7 +50,7 @@ const EditEdge: React.FC = () => {
             />
           }
           button={
-            <Button onClick={editEdge}>Change</Button>
+            <Button onClick={editEdge} variant='primary'>Change</Button>
           }
         />
       )}

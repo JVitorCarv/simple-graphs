@@ -12,7 +12,7 @@ const CleanEdges: React.FC = () => {
         <InstructionBox
             content={"Are you sure you want to delete all edges? This cannot be undone."}
             button={
-                <Button onClick={deleteAllEdges}>Yes</Button>
+                <Button onClick={deleteAllEdges} variant='primary'>Yes</Button>
             }
         />
     );
