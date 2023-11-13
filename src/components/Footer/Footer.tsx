@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
     const handleExportPngClick = useCallback(() => {
         const pngContent = cy.current.png({output: 'blob', full: true, scale: 1});
         const url = URL.createObjectURL(pngContent);
-    
+
         const link = document.createElement('a');
         link.href = url;
         link.download = 'graph.png';
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
                             <IconSpan 
                                 className='material-symbols-outlined' 
                                 onClick={closeModal} 
-                                style={{ position: 'absolute', display:'flex', right:'20%', top:'5%' ,overflow: 'visible' }} >
+                                style={{ position: 'absolute', display:'flex', right:'8%', top:'5%' ,overflow: 'visible' }} >
                                 {'close'}
                             </IconSpan>
                         </div>
