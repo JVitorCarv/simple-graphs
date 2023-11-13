@@ -3,7 +3,6 @@ import { Container, SelectedModeContainer, Navbar, Title } from './styles';
 import { Button } from './components/Button/Button';
 import EdgeEditor from '../Editors/EdgeEditor/EdgeEditor';
 import NodeEditor from '../Editors/NodeEditor/NodeEditor';
-import ExportImportGraph from '../Editors/ExportImportGraph/ExportImportGraph';
 import ReturnArrow from './components/ReturnArrow/ReturnArrow';
 
 

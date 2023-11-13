@@ -91,10 +91,7 @@ const Footer: React.FC = () => {
                         </IconsContainer>
                         <IconsContainer>
                         </IconsContainer>
-                            <Button onClick={handleExportPngClick} variant='secondary'>PNG</Button>
-
-                        
-                        
+                            <Button onClick={handleExportPngClick} variant='secondary'>PNGGG</Button>
                     </Modal>
                 <label>
                     <RenderIcon currentMode="file" mode="Import" onClick={handleFileChange}/>

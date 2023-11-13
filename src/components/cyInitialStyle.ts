@@ -22,20 +22,6 @@ export const cyInitialStyle: cytoscape.Stylesheet[] = [
         'text-outline-width': 1,
         'color': '#FFF',
       }
-    },
-    {
-      selector: 'export',
-      style: {
-        'width': 4,
-        'line-color': '#00578a',
-        'curve-style': 'bezier',
-        'label': 'data(weight)',
-        'text-halign': 'center',
-        'text-valign': 'top',
-        'text-outline-color': '#000',
-        'text-outline-width': 1,
-        'color': '#FFF',
-      }
     }
   ];
   
