@@ -6,7 +6,7 @@ import { SelectIconContainer } from './styles';
 interface RenderIconProps {
   currentMode: string;
   mode: string;
-  onClick: () => void;
+  onClick: any;
 }
 
 const RenderIcon: React.FC<RenderIconProps> = ({ currentMode, mode, onClick }) => {
