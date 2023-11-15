@@ -4,7 +4,8 @@ import { Button } from './components/Button/Button';
 import EdgeEditor from '../Editors/EdgeEditor/EdgeEditor';
 import NodeEditor from '../Editors/NodeEditor/NodeEditor';
 import ReturnArrow from './components/ReturnArrow/ReturnArrow';
-
+import AlgorithmsEditor from '../Editors/AlgorithmsEditor/AlgorithmsEditor';
+import MoreInfosEditor from '../Editors/MoreInfosEditor/MoreInfosEditor';
 
 const EditorContainer: React.FC = () => {
   const [mode, setMode] = useState<string>('');
@@ -28,10 +29,18 @@ const EditorContainer: React.FC = () => {
         {mode === '' && (
           <Button onClick={() => setMode('edge')} variant='primary'>Edge</Button>
         )}
+        {mode === '' && (
+          <Button onClick={() => setMode('algorithms')} variant='primary'>Algorithms</Button>
+        )}
+        {mode === '' && (
+          <Button onClick={() => setMode('moreinfos')} variant='primary'>More Infos</Button>
+        )}
         <SelectedModeContainer>
           {displayArrow && <ReturnArrow onClick={() => setMode('')} />}
           {mode === 'node' && <NodeEditor />}
-          {mode === 'edge' && <EdgeEditor />}       
+          {mode === 'edge' && <EdgeEditor />} 
+          {mode === 'algorithms' && <AlgorithmsEditor />}  
+          {mode === 'moreinfos' && <MoreInfosEditor />}        
         </SelectedModeContainer>
       </Navbar>
     </Container>
