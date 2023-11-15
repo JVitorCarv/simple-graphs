@@ -4,9 +4,8 @@ import InstructionBox from '../../../../EditorContainer/components/InstructionBo
 import { Button } from '../../../../EditorContainer/components/Button/Button';
 
 const ErrorMessage: React.FC<{ message: string }> = ({ message }) => (
-  <div style={{ position: 'absolute', top: '170px', color: 'red' }}>
     <h1>{message}</h1>
-  </div>
+ 
 );
 
 const DijkstraAlgorithm: React.FC = () => {
@@ -105,8 +104,14 @@ const DijkstraAlgorithm: React.FC = () => {
       )}
 
       {errorMessage && (
+        <div style={{ position: 'absolute', top: '170px', color: 'red', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+      
+        <ErrorMessage message={`Sem caminhos disponíveis. Não é possível executar o algoritmo do nó ${cy.current.$(`#${sourceNode}`).data('label')} para o nó ${cy.current.$(`#${targetNode}`).data('label')}.`}/>
+        <Button onClick={clearSelection} style={{ marginLeft: '20px' }} variant="primary">
+          Clear
+        </Button>
+        </div>
         
-        <ErrorMessage message={`Sem caminhos disponíveis. Não é possível executar o algoritmo do nó ${cy.current.$(`#${sourceNode}`).data('label')} para o nó ${cy.current.$(`#${targetNode}`).data('label')}.`} />
       )}
     </>
   );
