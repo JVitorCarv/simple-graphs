@@ -29,7 +29,7 @@ const AddEdge: React.FC = () => {
     });
 
     if (isDirected) {
-      cy.current.$(`#${newEdgeId}`)
+      cy.current.$(`#${newEdgeId}`)    
         .style('target-arrow-shape', 'triangle')
         .style('target-arrow-color', '#00578a');
     }

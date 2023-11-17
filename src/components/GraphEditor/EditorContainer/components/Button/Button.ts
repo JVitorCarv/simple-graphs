@@ -23,10 +23,10 @@ const getBackgroundColor = (variant: string | undefined): string => {
         return 'var(--colors-blue, #007AFF)';
       default:
         return '#007AFF;';
+   
     }
   };
   
-
 export const Button = styled.button<ButtonProps>`
     border: none;
     font-family: 'Roboto', sans-serif;
@@ -37,5 +37,5 @@ export const Button = styled.button<ButtonProps>`
     color: ${(props) => getColor(props.variant)};
     border-radius: 12px;
     padding: 10px 20px;
-    cursor: pointer;
+    cursor: pointer;   
 `;
