@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useCy } from '../.././../../../../providers/useCy';
 import InstructionBox from '../../../../EditorContainer/components/InstructionBox/InstructionBox';
-import { Button } from '../../../../EditorContainer/components/Button/Button';
+import { Container, InfoBox, InfoLabel, InfoValue, ErrorMessage, StyledButton, ClearButton } from './styles';
 
-const ErrorMessage: React.FC<{ message: string }> = ({ message }) => (
-    <h1>{message}</h1>
- 
-);
-
-const DijkstraAlgorithm: React.FC = () => {
+const DijkstraAlgorithm: React.FC<{ directed: boolean }> = ({ directed }) => {
   const cy = useCy();
 
   const [sourceNode, setSourceNode] = useState<string>('');
@@ -24,26 +19,16 @@ const DijkstraAlgorithm: React.FC = () => {
     setPath(null);
     setErrorMessage('');
   };
-
-  const resetAlgorithm = () => {
-    setSourceNode('');
-    setTargetNode('');
-    setDistances(null);
-    setPath(null);
-    setErrorMessage('');
+  const handleTap = (e: any) => {
+    const clickedNode = e.target.id();
+    if (sourceNode === '') {
+      setSourceNode(clickedNode);
+    } else if (targetNode === '') {
+      setTargetNode(clickedNode);
+    }
   };
-
   useEffect(() => {
     const cyRef = cy.current;
-
-    const handleTap = (e: any) => {
-      const clickedNode = e.target.id();
-      if (sourceNode === '') {
-        setSourceNode(clickedNode);
-      } else if (targetNode === '') {
-        setTargetNode(clickedNode);
-      }
-    };
 
     cyRef.nodes().on('tap', handleTap);
 
@@ -52,24 +37,26 @@ const DijkstraAlgorithm: React.FC = () => {
     };
   }, [cy, sourceNode, targetNode]);
 
+
   useEffect(() => {
     if (sourceNode.trim() !== '' && targetNode.trim() !== '') {
-      const dijkstraResult = cy.current.elements().dijkstra(`#${sourceNode}`, (edge: any) => edge.data('weight'), true);
 
+      const dijkstraResult = directed
+        ? cy.current.elements().dijkstra(`#${sourceNode}`, (edge: any) => edge.data('weight'), true)
+        : cy.current.elements().dijkstra(`#${sourceNode}`, (edge: any) => edge.data('weight'));
       const distance = dijkstraResult.distanceTo(`#${targetNode}`);
       const pathToTarget = dijkstraResult.pathTo(`#${targetNode}`);
 
       if (distance === Infinity) {
-        setErrorMessage('Sem caminhos disponíveis. Não é possível executar o algoritmo para os nós selecionados.');
+        setErrorMessage(`Path does not exist to node ${cy.current.$(`#${sourceNode}`).data('label')} from node ${cy.current.$(`#${targetNode}`).data('label')}.`);
         setDistances(null);
         setPath(null);
       } else {
         setDistances(distance);
         const pathString = pathToTarget
           .map((node: any) => node.data('label'))
-          .filter((label: string) => label) // Filtrar labels vazias
-          .join(' ➔ ');
-
+          .filter((label: string) => label) 
+           .join(' ➔ '); 
         setPath(pathString);
         setErrorMessage('');
       }
@@ -78,40 +65,38 @@ const DijkstraAlgorithm: React.FC = () => {
 
   return (
     <>
-      <Button variant="tertiary" onClick={resetAlgorithm}>
+      <StyledButton variant="tertiary" onClick={clearSelection}>
         Dijkstra
-      </Button>
+      </StyledButton>
   
       {sourceNode === '' && targetNode === '' && <InstructionBox content="Click on the source node" />}
       {sourceNode !== '' && targetNode === '' && <InstructionBox content="Click on the target node" />}
   
       {distances !== null && path !== null && (
-        <div style={{ marginTop: '30px', width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>     
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', marginRight: '10px' }}>
-            <h2 style={{ marginRight: '10px', color: 'black', lineHeight: '1.5' }}>Distance to {cy.current.$(`#${targetNode}`).data('label')}:</h2>
-            <h2 style={{ margin: '0', color: 'var(--colors-blue, #007AFF)', lineHeight: '1.5' }}>{distances}</h2>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
-            <h2 style={{ marginRight: '10px', color: 'black', lineHeight: '1.5' }}>Path to {cy.current.$(`#${targetNode}`).data('label')}:</h2>
-            <h2 style={{ margin: '0', color: 'var(--colors-blue, #007AFF)', lineHeight: '1.5' }}>{path}</h2>
-          </div>
-
-          <Button onClick={clearSelection} style={{ marginLeft: '10px' }} variant="primary">
+        <Container>
+          <InfoBox>
+            <InfoLabel>Distance to {cy.current.$(`#${targetNode}`).data('label')}:</InfoLabel>
+            <InfoValue>{distances}</InfoValue>
+          </InfoBox>
+  
+          <InfoBox>
+            <InfoLabel>Path to {cy.current.$(`#${targetNode}`).data('label')}:</InfoLabel>
+            <InfoValue>{path}</InfoValue>
+          </InfoBox>
+  
+          <StyledButton onClick={clearSelection} variant="primary">
             Clear
-          </Button>
-        </div>
+          </StyledButton>
+        </Container>
       )}
-
+  
       {errorMessage && (
-        <div style={{ position: 'absolute', top: '170px', color: 'red', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-      
-        <ErrorMessage message={`Sem caminhos disponíveis. Não é possível executar o algoritmo do nó ${cy.current.$(`#${sourceNode}`).data('label')} para o nó ${cy.current.$(`#${targetNode}`).data('label')}.`}/>
-        <Button onClick={clearSelection} style={{ marginLeft: '20px' }} variant="primary">
-          Clear
-        </Button>
-        </div>
-        
+        <ErrorMessage>
+          <h1>{errorMessage}</h1>
+          <ClearButton onClick={clearSelection} variant="primary">
+            Clear
+          </ClearButton>
+        </ErrorMessage>
       )}
     </>
   );

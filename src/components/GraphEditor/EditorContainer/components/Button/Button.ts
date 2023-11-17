@@ -12,8 +12,6 @@ const getBackgroundColor = (variant: string | undefined): string => {
         return 'var(--fills-tertiary, rgba(0, 0, 0, 0.12))';
       default:
         return 'rgba(0, 122, 255, 0.15);';
-      case 'tertiary':
-          return 'rgba(0, 122, 255, 0.15)';
     }
   };
 
@@ -25,8 +23,7 @@ const getBackgroundColor = (variant: string | undefined): string => {
         return 'var(--colors-blue, #007AFF)';
       default:
         return '#007AFF;';
-      case 'tertiary':
-        return '#007AFF;'
+   
     }
   };
   
