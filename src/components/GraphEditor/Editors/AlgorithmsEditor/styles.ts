@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Slider, SliderBefore } from '../../Editors/EdgeEditor/components/AddEdge/styles';
+import { Slider, SliderBefore } from '../EdgeEditor/components/AddEdge/styles';
 
 export const Container = styled.div`
   margin-top: -68px;
