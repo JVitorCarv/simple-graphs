@@ -19,11 +19,8 @@ const getBackgroundColor = (variant: string | undefined): string => {
     switch (variant) {
       case 'primary':
         return 'white';
-      case 'secondary':
-        return 'var(--colors-blue, #007AFF)';
       default:
         return '#007AFF;';
-   
     }
   };
   

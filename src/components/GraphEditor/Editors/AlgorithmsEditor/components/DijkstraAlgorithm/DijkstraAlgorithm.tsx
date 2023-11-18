@@ -3,7 +3,7 @@ import { useCy } from '../.././../../../../providers/useCy';
 import InstructionBox from '../../../../EditorContainer/components/InstructionBox/InstructionBox';
 import { Container, InfoBox, InfoLabel, InfoValue, ErrorMessage, StyledButton, ClearButton } from './styles';
 
-const DijkstraAlgorithm: React.FC<{ directed: boolean }> = ({ directed }) => {
+const DijkstraAlgorithm: React.FC = () => {
   const cy = useCy();
 
   const [sourceNode, setSourceNode] = useState<string>('');
@@ -11,6 +11,7 @@ const DijkstraAlgorithm: React.FC<{ directed: boolean }> = ({ directed }) => {
   const [distances, setDistances] = useState<number | null>(null);
   const [path, setPath] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [directed, setDirected] = useState<boolean>(false);
 
   const clearSelection = () => {
     setSourceNode('');
@@ -19,6 +20,7 @@ const DijkstraAlgorithm: React.FC<{ directed: boolean }> = ({ directed }) => {
     setPath(null);
     setErrorMessage('');
   };
+
   const handleTap = (e: any) => {
     const clickedNode = e.target.id();
     if (sourceNode === '') {
@@ -64,11 +66,7 @@ const DijkstraAlgorithm: React.FC<{ directed: boolean }> = ({ directed }) => {
   }, [cy, sourceNode, targetNode]);
 
   return (
-    <>
-      <StyledButton variant="tertiary" onClick={clearSelection}>
-        Dijkstra
-      </StyledButton>
-  
+    <>  
       {sourceNode === '' && targetNode === '' && <InstructionBox content="Click on the source node" />}
       {sourceNode !== '' && targetNode === '' && <InstructionBox content="Click on the target node" />}
   
@@ -78,12 +76,10 @@ const DijkstraAlgorithm: React.FC<{ directed: boolean }> = ({ directed }) => {
             <InfoLabel>Distance to {cy.current.$(`#${targetNode}`).data('label')}:</InfoLabel>
             <InfoValue>{distances}</InfoValue>
           </InfoBox>
-  
           <InfoBox>
             <InfoLabel>Path to {cy.current.$(`#${targetNode}`).data('label')}:</InfoLabel>
             <InfoValue>{path}</InfoValue>
           </InfoBox>
-  
           <StyledButton onClick={clearSelection} variant="primary">
             Clear
           </StyledButton>

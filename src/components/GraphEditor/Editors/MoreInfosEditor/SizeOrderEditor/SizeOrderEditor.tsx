@@ -1,6 +1,5 @@
 import React from 'react';
 import { useCy } from '../../../../../providers/useCy';
-import { Button } from '../../../EditorContainer/components/Button/Button';
 import { Container, InfoContainer, Heading, Value } from './style';
 
 const SizeOrderEditor: React.FC = () => {
@@ -10,8 +9,6 @@ const SizeOrderEditor: React.FC = () => {
 
   return (
     <>
-      <Button variant="tertiary">Get Order & Size</Button>
-
       <Container>
         <InfoContainer>
           <Heading>Order:</Heading>
