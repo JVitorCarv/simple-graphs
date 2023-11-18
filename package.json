@@ -10,12 +10,17 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
 =======
     "predeploy" : "npm run build",
     "deploy" : "gh-pages -d dist"
 >>>>>>> bd18c20 (fix bug on build & add deploy workflow)
+=======
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+>>>>>>> 73b73b89875b29035d1e9f9f3ce793a723ef6d37
   },
   "dependencies": {
     "gh-pages": "^6.0.0",
