@@ -11,7 +11,7 @@ const DijkstraAlgorithm: React.FC = () => {
   const [distances, setDistances] = useState<number | null>(null);
   const [path, setPath] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [directed, setDirected] = useState<boolean>(false);
+  const [directed] = useState<boolean>(false);
 
   const clearSelection = () => {
     setSourceNode('');
