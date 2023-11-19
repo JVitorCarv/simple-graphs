@@ -1,4 +1,5 @@
 import CyProvider from './providers/CyProvider'
+import { DirectionProvider } from './providers/DirectionProvider'
 import { NodeLabelProvider } from './providers/NodeLabelProvider'
 import GlobalStyles from './GlobalStyles'
 import NetworkGraph from './components/NetworkGraph/NetworkGraph'
@@ -8,9 +9,11 @@ function App() {
     <>
       <GlobalStyles/>
       <NodeLabelProvider>
-        <CyProvider>
-          <NetworkGraph />
-        </CyProvider>
+        <DirectionProvider>
+          <CyProvider>
+            <NetworkGraph />
+          </CyProvider>
+        </DirectionProvider>
       </NodeLabelProvider>
     </>
   )

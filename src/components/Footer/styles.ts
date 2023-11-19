@@ -14,6 +14,18 @@ export const IconsContainer = styled.div`
     margin-top: 20px;
 `
 
+export const SelectedDirectionContainer = styled.div`
+  display: none;
+
+  @media (max-width: 550px) {
+    display: flex;
+    column-gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
 export const IconGroupContainer = styled.div`
     display: flex;
     align-items: center;
@@ -40,3 +52,4 @@ export const modalStyle = {
         padding: '20px',
     },
 };      
+

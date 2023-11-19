@@ -3,8 +3,9 @@ import RenderIcon from '../GraphEditor/EditorContainer/components/RenderIcon/Ren
 import GithubLogo from '../../assets/github.png'
 import CytoscapeLogo from '../../assets/cytoscape.png'
 import { useCy } from '../../providers/useCy'
-import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer } from './styles'
+import { FooterContainer, IconsContainer, IconGroupContainer, LogoContainer, SelectedDirectionContainer} from './styles'
 import ExportModal from './components/ModalComponent/ModalComponent'
+import SelectDirection from '../GraphEditor/EditorContainer/components/SelectDirection/SelectDirection'
 
 
 const Footer: React.FC = () => {
@@ -66,6 +67,9 @@ const Footer: React.FC = () => {
                     <a href="https://js.cytoscape.org/" target="_blank" rel="noopener noreferrer">
                         <LogoContainer src={CytoscapeLogo} /></a>
                 </IconGroupContainer>
+                <SelectedDirectionContainer>
+                    <SelectDirection />
+                </SelectedDirectionContainer>
                 <IconGroupContainer>
                     <RenderIcon currentMode="" mode="Export" onClick={openModal} />
                     <ExportModal 
