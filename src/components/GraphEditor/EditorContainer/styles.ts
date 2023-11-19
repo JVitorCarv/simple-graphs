@@ -31,3 +31,15 @@ export const SelectedModeContainer = styled.div`
     align-items: center;
     justify-content: center;
 `
+
+export const SelectedDirectionContainer = styled.div`
+  display: none;
+
+  @media (min-width: 550px) {
+    display: flex;
+    column-gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+`;

@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { useCy } from '../../../../../../providers/useCy';
 import InstructionBox from '../../../../EditorContainer/components/InstructionBox/InstructionBox';
 import { Button } from '../../../../EditorContainer/components/Button/Button';
-import { CheckboxInput, SelectDirectionContainer, Slider, SliderBefore, StyledSwitch } from './styles';
+import { DirectionContext } from '../../../../../../providers/DirectionProvider';
 
 
 const AddEdge: React.FC = () => {
@@ -10,10 +10,10 @@ const AddEdge: React.FC = () => {
 
   const [sourceNode, setSourceNode] = useState<string>('');
   const [targetNode, setTargetNode] = useState<string>('');
-  const [directed, setDirected] = useState<boolean>(false);
   const [weight, setWeight] = useState<number>(0);
+  const {direction} = useContext(DirectionContext);
 
-  const addEdge = (isDirected: boolean = false) => {
+  const addEdge = () => {
     if (sourceNode.trim() === '' || targetNode.trim() === '') return;
 
     const newEdgeId = Date.now();
@@ -28,7 +28,7 @@ const AddEdge: React.FC = () => {
       },
     });
 
-    if (isDirected) {
+    if (direction) {
       cy.current.$(`#${newEdgeId}`)    
         .style('target-arrow-shape', 'triangle')
         .style('target-arrow-color', '#00578a');
@@ -72,23 +72,7 @@ const AddEdge: React.FC = () => {
               placeholder={`Insert weight...`}
             />
           }
-          button={
-            <>
-              <SelectDirectionContainer>
-                <p>Directed</p>
-                <StyledSwitch className={directed ? "round" : ""}>
-                  <CheckboxInput
-                    type="checkbox"
-                    checked={directed}
-                    onChange={() => setDirected(!directed)}
-                  />
-                  <Slider className="slider" />
-                  <SliderBefore className="slider-before" />
-                </StyledSwitch>
-              </SelectDirectionContainer>
-              <Button onClick={() => addEdge(directed)} variant='primary'>Add</Button>
-            </>
-          }
+          button={<Button onClick={() => addEdge()} variant='primary'>Add</Button>}
         />
       )}
     </>

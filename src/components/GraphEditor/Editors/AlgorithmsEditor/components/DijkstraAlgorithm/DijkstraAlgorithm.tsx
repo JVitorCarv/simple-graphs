@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { DirectionContext } from '../../../../../../providers/DirectionProvider';
 import { useCy } from '../.././../../../../providers/useCy';
 import InstructionBox from '../../../../EditorContainer/components/InstructionBox/InstructionBox';
 import { Container, InfoBox, InfoLabel, InfoValue, ErrorMessage, StyledButton, ClearButton } from './styles';
@@ -11,7 +12,7 @@ const DijkstraAlgorithm: React.FC = () => {
   const [distances, setDistances] = useState<number | null>(null);
   const [path, setPath] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [directed] = useState<boolean>(false);
+  const { direction } = useContext(DirectionContext);
 
   const clearSelection = () => {
     setSourceNode('');
@@ -43,7 +44,7 @@ const DijkstraAlgorithm: React.FC = () => {
   useEffect(() => {
     if (sourceNode.trim() !== '' && targetNode.trim() !== '') {
 
-      const dijkstraResult = directed
+      const dijkstraResult = direction
         ? cy.current.elements().dijkstra(`#${sourceNode}`, (edge: any) => edge.data('weight'), true)
         : cy.current.elements().dijkstra(`#${sourceNode}`, (edge: any) => edge.data('weight'));
       const distance = dijkstraResult.distanceTo(`#${targetNode}`);
