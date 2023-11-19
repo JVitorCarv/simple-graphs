@@ -59,7 +59,7 @@ const CheckAdjacency: React.FC = () => {
       <>
         <Container>
           {sourceNode === '' && <InstructionBox content={'Click source node'} />}
-          {sourceNode !== '' && targetNode === '' && <InstructionBox content={'Click target node to check adjacency'} />}
+          {sourceNode !== '' && targetNode === '' && <InstructionBox content={'Click target node'} />}
 
           {sourceNode !== '' && targetNode !== '' && isAdjacent == false && 
             <InfoBox>
