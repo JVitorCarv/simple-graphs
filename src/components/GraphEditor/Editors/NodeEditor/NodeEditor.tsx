@@ -7,7 +7,7 @@ import InstructionBox from '../../EditorContainer/components/InstructionBox/Inst
 import RenderIcon from '../../EditorContainer/components/RenderIcon/RenderIcon';
 
 const NodeEditor: React.FC = () => {
-    const modeList: string[] = ['Add', 'Edit', 'Delete', 'Clean', 'Check Adjacency'];
+    const modeList: string[] = ['Add', 'Edit', 'Delete', 'Clean'];
 
     const [mode, setMode] = useState<string>('');
 
