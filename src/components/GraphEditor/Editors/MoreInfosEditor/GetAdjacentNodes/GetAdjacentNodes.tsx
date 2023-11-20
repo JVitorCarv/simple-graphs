@@ -32,7 +32,7 @@ const GetAdjacentNodes: React.FC = () => {
 
 	const getSourceNodes = () => getNodeInformation("incomers")
 
-	const getTargetNodes = () => getNodeInformation("successors")
+	const getTargetNodes = () => getNodeInformation("outgoers")
 
 	useEffect(() => {
 		const cyRef = cy.current
