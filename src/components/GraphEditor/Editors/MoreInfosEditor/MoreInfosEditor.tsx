@@ -3,6 +3,7 @@ import InstructionBox from '../../EditorContainer/components/InstructionBox/Inst
 import MenuButton from '../../EditorContainer/components/MenuButton/MenuButton';
 import SizeOrderEditor from './SizeOrderEditor/SizeOrderEditor';
 import CheckAdjacency from './CheckAdjacency/CheckAdjacency';
+import CheckDegree from './CheckDegree/CheckDegree';
 
 const MoreInfosEditor: React.FC = () => {
 
@@ -24,8 +25,16 @@ const MoreInfosEditor: React.FC = () => {
           >
             Check Adjacency of 2 Nodes
           </MenuButton>
+          <MenuButton
+            setMode={setMode}
+            mode='checkdegree'
+            currentMode={mode}
+          >
+            Get Degree
+          </MenuButton>
           {mode === 'getordersize' && <SizeOrderEditor/>}
           {mode === 'checkadjacency' && <CheckAdjacency/>}
+          {mode === 'checkdegree' && <CheckDegree/>}
           {mode === '' && <InstructionBox content={"Select a Mode"} />}
         </>
     );
