@@ -17,7 +17,6 @@ const CheckDegree:React.FC = () => {
         setSelectedNode(e.target.id());
     }
 
-    // Click on the node
     useEffect(() => {
         const cyRef = cy.current;
 
@@ -26,7 +25,6 @@ const CheckDegree:React.FC = () => {
             cyRef.nodes().off('tap', handleClick);
         }
     }, [cy]);
-
  
     const cyRef = cy.current;
 
@@ -37,7 +35,6 @@ const CheckDegree:React.FC = () => {
     } else {
         var valency = nodeValency.degree();
     }
-
 
     return(
         <>
