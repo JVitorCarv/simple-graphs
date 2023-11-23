@@ -51,3 +51,17 @@ export const generateGraphFromUserInput = (cy: cytoscape.Core, input: string) =>
       generateGraphFromUserInput(cy, userInput);
     }
   };
+
+  export const handleFileChange = (cy: cytoscape.Core, event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const contents = e.target?.result;
+            if (typeof contents === 'string') {
+                cy.json(JSON.parse(contents));
+            }
+        };
+        reader.readAsText(file);
+    }
+};
