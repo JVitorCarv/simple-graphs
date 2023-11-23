@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
           <SelectDirection />
         </SelectedDirectionContainer>
         <IconGroupContainer>
-          <RenderIcon currentMode="Export" mode="Export" onClick={openModal} />
+          <RenderIcon currentMode="" mode="Export" onClick={openModal} />
           <ExportModal
             isOpen={modalIsOpen}
             closeModal={closeModal}
@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
             handleExportPngClick={handleExportPngClick}
           />
           <RenderIcon
-            currentMode="Import"
+            currentMode=""
             mode="Import"
             onClick={openModalImport}
           />
