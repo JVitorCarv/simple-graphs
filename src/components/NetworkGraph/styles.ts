@@ -4,6 +4,7 @@ export const NetworkContainer = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2px;
 `
 
 export const GraphContainer = styled.div`
