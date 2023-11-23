@@ -6,9 +6,9 @@ import { IconSpan } from '../../../GraphEditor/EditorContainer/components/IconSp
 
 interface ExportModalProps {
     isOpen: boolean;
-    closeModal: () => void;
-    handleExportClick: () => void;
-    handleExportPngClick: () => void;
+    closeModal: () => any;
+    handleExportClick: () => any;
+    handleExportPngClick: () => any;
 }
 
 const ExportModal: React.FC<ExportModalProps> = ({ isOpen, closeModal, handleExportClick, handleExportPngClick }) => {
