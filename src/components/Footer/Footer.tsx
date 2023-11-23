@@ -10,14 +10,16 @@ import {
   LogoContainer,
   SelectedDirectionContainer,
 } from './styles';
-import ExportModal from './components/ModalComponent/ModalComponent';
+import ExportModal from './components/ModalComponents/ExportModalComponent';
+import ImportModal from './components/ModalComponents/ImportModalComponent';
 import SelectDirection from '../GraphEditor/EditorContainer/components/SelectDirection/SelectDirection';
-import { handleInputBatch, generateGraphFromUserInput } from './functions/GraphFunctions'
+import { handleInputBatch, generateGraphFromUserInput, handleFileChange } from './functions/GraphFunctions'
+
 
 const Footer: React.FC = () => {
   const cy = useCy();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+    
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -26,6 +28,15 @@ const Footer: React.FC = () => {
     setModalIsOpen(false);
   };
 
+  const [modalIsOpenImport, setModalIsOpenImport] = useState(false);
+
+  const openModalImport = () => {
+    setModalIsOpenImport(true);
+  };
+
+  const closeModalImport = () => {
+    setModalIsOpenImport(false);
+  };
 
   const handleExportClick = useCallback(() => {
     const graphJson = cy.current.json();
@@ -52,19 +63,12 @@ const handleExportPngClick = useCallback(() => {
     document.body.removeChild(link);
 }, [cy]);
 
-const handleFileChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const contents = e.target?.result;
-            if (typeof contents === 'string') {
-                cy.current.json(JSON.parse(contents));
-            }
-        };
-        reader.readAsText(file);
-    }
-}, [cy]);
+
+const inputFileRef = React.useRef<HTMLInputElement>(null);
+
+const handleFileClick = () => {
+    inputFileRef.current?.click();
+  };
   
 const onGenerateClick = () => {
     handleInputBatch(cy.current, generateGraphFromUserInput);
@@ -85,16 +89,11 @@ const onGenerateClick = () => {
           <SelectDirection />
         </SelectedDirectionContainer>
         <IconGroupContainer>
-          <RenderIcon currentMode="" mode="Export" onClick={openModal} />
+          <RenderIcon currentMode="Export" mode="Export" onClick={openModal} />
           <ExportModal isOpen={modalIsOpen} closeModal={closeModal} handleExportClick={handleExportClick} handleExportPngClick={handleExportPngClick} />
-          <label>
-            <RenderIcon currentMode="file" mode="Import" onClick={handleFileChange} />
-            <input type="file" accept=".json" onChange={handleFileChange} style={{ display: 'none' }} />
-          </label>
-          <RenderIcon currentMode="input" mode="Generate" onClick={onGenerateClick} />
-          <label>
-            <input type="button" value="Generate Graph" onClick={onGenerateClick} />
-          </label>
+          <RenderIcon currentMode="Import" mode="Import" onClick={openModalImport} />
+          <input type="file" ref={inputFileRef} onChange={(event) => handleFileChange(cy.current, event)} style={{ display: 'none' }} />
+          <ImportModal isOpenImport={modalIsOpenImport} closeModalImport={closeModalImport} handleFileClick={handleFileClick} onGenerateClick={onGenerateClick}/>
         </IconGroupContainer>
       </IconsContainer>
     </FooterContainer>
