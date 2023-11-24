@@ -62,7 +62,7 @@ export const handleInputBatch = (
   generateGraphFromUserInput: (cy: cytoscape.Core, input: string) => void
 ) => {
   const userInput = prompt(
-    'Digite as informações para gerar o grafo (por exemplo, "0 2 3|0 1 2|1 2 3"):'
+    'Input the data to generate the graph (e.g., "0 2 3|0 1 2|1 2 3").'
   );
   if (userInput) {
     generateGraphFromUserInput(cy, userInput);
