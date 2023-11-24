@@ -47,7 +47,14 @@ const CheckDiameter: React.FC = () => {
       <>          
         <Container>
           <InfoBox>
-            <InfoLabel>Graph Diameter: {diameter}, from {sourceNode} to {targetNode}</InfoLabel>
+            {diameter > 0 && diameter < Infinity &&
+              <InfoLabel>Graph Diameter: {diameter}, from {sourceNode} to {targetNode}</InfoLabel>
+            }
+
+            {(diameter == 0 || diameter === Infinity) &&
+              <InfoLabel>Graph Diameter: {diameter}</InfoLabel>
+            }
+            
           </InfoBox>
         </Container>
       </>
