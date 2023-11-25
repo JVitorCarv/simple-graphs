@@ -11,7 +11,7 @@ export const Navbar = styled.nav`
 
 export const Container = styled.nav`
     align-content: start;
-    margin-top: 30px;
+    margin-top: 25px;
     display: flex;
     flex-flow: column;
     gap: 20px;
