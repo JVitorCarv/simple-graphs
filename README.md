@@ -1,61 +1,83 @@
-O código fornecido parece ser parte de uma aplicação React para edição e análise de gráficos. Vamos dividir o código e explicar sua estrutura:
+# Graph Editor README
 
-### Componentes:
+Este repositório contém uma aplicação React para edição e análise de gráficos. A aplicação oferece diversas funcionalidades, incluindo a edição de nós e arestas, a execução de algoritmos em grafos, e a exportação/importação de grafos.
 
-1. **NodeEditor:**
-   - **Descrição:** Este componente representa o editor de nós. Permite ao usuário adicionar, editar, excluir ou limpar nós no gráfico.
-   - **Dependências:** Dependente de componentes como `AddNode`, `EditNode`, `DeleteNode`, `CleanNodes`, `InstructionBox` e `RenderIcon`.
-   - **Estado:** Usa o estado `mode` para determinar o modo de operação atual (Adicionar, Editar, Excluir, Limpar).
+## Estrutura do Projeto
 
-2. **MoreInfosEditor:**
-   - **Descrição:** Este componente fornece informações adicionais sobre o gráfico, como ordem, tamanho, adjacência e grau.
-   - **Dependências:** Dependente de componentes como `SizeOrderEditor`, `CheckAdjacency`, `CheckDegree`, `GetAdjacentNodes`, `InstructionBox` e `MenuButton`.
-   - **Estado:** Usa o estado `mode` para determinar o modo atual de recuperação de informações.
+A aplicação é dividida em diferentes componentes, cada um responsável por uma parte específica do editor de gráficos. Abaixo estão os principais componentes:
 
-3. **EdgeEditor:**
-   - **Descrição:** Este componente representa o editor de arestas. Permite ao usuário adicionar, editar, excluir ou limpar arestas no gráfico.
-   - **Dependências:** Dependente de componentes como `AddEdge`, `EditEdge`, `DeleteEdge`, `CleanEdges`, `InstructionBox` e `RenderIcon`.
-   - **Estado:** Usa o estado `mode` para determinar o modo de operação atual (Adicionar, Editar, Excluir, Limpar).
+### 1. NodeEditor
 
-4. **AlgorithmsEditor:**
-   - **Descrição:** Este componente fornece acesso a algoritmos de gráfico como Dijkstra e cálculo de diâmetro.
-   - **Dependências:** Dependente de componentes como `DijkstraAlgorithm`, `CheckDiameter`, `InstructionBox` e `MenuButton`.
-   - **Estado:** Usa o estado `mode` para determinar o modo algorítmico atual.
+Este componente é responsável pela edição de nós no gráfico. Oferece as seguintes funcionalidades:
 
-5. **Footer:**
-   - **Descrição:** Este componente representa o rodapé da aplicação, contendo ícones, funcionalidade de exportação/importação e links.
-   - **Dependências:** Dependente de componentes como `RenderIcon`, `ExportModal`, `ImportModal` e `SelectDirection`.
-   - **Estado:** Gerencia o estado para a visibilidade do modal (`modalIsOpen`, `modalIsOpenImport`) e manipula várias ações como exportação, importação e operações de arquivo.
+- Adicionar nós
+- Editar nós existentes
+- Excluir nós
+- Limpar todos os nós
 
-### Ações e Recursos:
+### 2. MoreInfosEditor
 
-- **Renderização de Ícones:**
-  - O componente `RenderIcon` é usado para renderizar ícones para diferentes modos.
+Fornece informações adicionais sobre o gráfico, incluindo:
 
-- **Seleção de Modo:**
-  - Os modos são selecionados usando o estado `mode` em cada componente editor.
+- Ordem e tamanho do gráfico
+- Verificação de adjacência entre dois nós
+- Obtenção do grau de um nó
+- Obtenção de nós adjacentes a um nó
 
-- **Manipulação de Modal:**
-  - Modais são usados para funcionalidades de exportação e importação.
+### 3. EdgeEditor
 
-- **Operações de Arquivo:**
-  - Operações relacionadas a arquivos incluem exportar o gráfico em formatos JSON e PNG, importar um gráfico de um arquivo e gerar um gráfico a partir da entrada do usuário.
+Responsável pela edição de arestas no gráfico. Oferece funcionalidades semelhantes ao `NodeEditor`, incluindo:
 
-### Bibliotecas e Recursos Externos:
+- Adicionar arestas
+- Editar arestas existentes
+- Excluir arestas
+- Limpar todas as arestas
 
-- **Cytoscape:**
-  - A aplicação parece aproveitar a biblioteca Cytoscape para visualização e manipulação de gráficos.
+### 4. AlgorithmsEditor
 
-### Implantação e Execução:
+Este componente permite a execução de algoritmos no gráfico, atualmente incluindo:
 
-- O código parece fazer parte de uma aplicação React. A implantação envolveria o processo típico de implantação de aplicações React.
+- Algoritmo de Dijkstra
+- Cálculo do diâmetro do gráfico
 
-- Para executar o sistema, você geralmente usaria um comando como `npm start` após configurar as dependências necessárias.
+### 5. Footer
 
-- Certifique-se de que as dependências estão instaladas usando `npm install` antes de executar a aplicação.
+O rodapé da aplicação contém links úteis, ícones de exportação/importação e uma opção para selecionar a direção do gráfico.
 
-### Nota:
+## Como Executar a Aplicação
 
-- A implementação detalhada dos componentes referenciados (`AddNode`, `EditNode`, `DeleteNode`, `CleanNodes`, `SizeOrderEditor`, `CheckAdjacency`, `CheckDegree`, `GetAdjacentNodes`, `AddEdge`, `EditEdge`, `DeleteEdge`, `CleanEdges`, `DijkstraAlgorithm`, `CheckDiameter`, `RenderIcon`, `MenuButton`, `ExportModal`, `ImportModal`, `SelectDirection`, etc.) não é fornecida, então a funcionalidade específica desses componentes não está detalhada nesta explicação.
+Para executar a aplicação, siga os passos abaixo:
 
-Essa explicação deve ajudar a entender a estrutura geral e o propósito do código. Se tiver perguntas específicas sobre determinados componentes ou funcionalidades, sinta-se à vontade para perguntar!
+1. Certifique-se de ter o Node.js instalado em seu sistema.
+
+2. Clone este repositório usando o comando:
+   ```bash
+   git clone https://github.com/SEU_USUARIO/nome-do-repositorio.git
+   ```
+
+3. Navegue até o diretório do projeto:
+   ```bash
+   cd nome-do-repositorio
+   ```
+
+4. Instale as dependências usando o comando:
+   ```bash
+   npm install
+   ```
+
+5. Inicie a aplicação com:
+   ```bash
+   npm start
+   ```
+
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
+
+## Dependências Externas
+
+A aplicação utiliza a biblioteca Cytoscape para visualização e manipulação de gráficos. Certifique-se de verificar a [documentação do Cytoscape](https://js.cytoscape.org/) para obter mais informações sobre suas funcionalidades.
+
+## Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas (issues) ou enviar pull requests com melhorias ou correções.
+
+Aproveite o uso da aplicação de edição de gráficos!
