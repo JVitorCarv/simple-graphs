@@ -75,9 +75,3 @@ A aplicação estará disponível em [http://localhost:3000](http://localhost:30
 ## Dependências Externas
 
 A aplicação utiliza a biblioteca Cytoscape para visualização e manipulação de gráficos. Certifique-se de verificar a [documentação do Cytoscape](https://js.cytoscape.org/) para obter mais informações sobre suas funcionalidades.
-
-## Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas (issues) ou enviar pull requests com melhorias ou correções.
-
-Aproveite o uso da aplicação de edição de gráficos!
