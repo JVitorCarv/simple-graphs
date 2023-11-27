@@ -67,7 +67,7 @@ Para executar a aplicação, siga os passos abaixo:
 
 5. Inicie a aplicação com:
    ```bash
-   npm start
+   npm run dev
    ```
 
 A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
