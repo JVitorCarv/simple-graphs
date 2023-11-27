@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useCy } from '../../../../../../providers/useCy';
 import { Container, InfoBox, InfoLabel } from './styles';
+import { DirectionContext } from '../../../../../../providers/DirectionProvider';
 
 const CheckDiameter: React.FC = () => {
     const cy = useCy();
@@ -8,6 +9,7 @@ const CheckDiameter: React.FC = () => {
     const [sourceNode, setSourceNode] = useState<string>('');
     const [targetNode, setTargetNode] = useState<string>('');
     const [diameter, setDiameter] = useState<number>(0);
+    const { direction } = useContext(DirectionContext);
 
     useEffect(() => {
       const cyRef = cy.current;
@@ -17,11 +19,15 @@ const CheckDiameter: React.FC = () => {
       let target = '';
 
       cyRef.nodes().forEach((node: any) => {
-        const paths = cyRef.elements().dijkstra({ root: node });
-    
+        const dijkstraResult = direction
+        ? cy.current.elements().dijkstra(node, (edge: any) => edge.data('weight'), true)
+        : cy.current.elements().dijkstra(node, (edge: any) => edge.data('weight'));
+
         cyRef.nodes().forEach((otherNode: any) => {
           if (node.id() !== otherNode.id()) {
-            const distance = paths.distanceTo(otherNode);
+    
+            const distance = dijkstraResult.distanceTo(`#${otherNode}`);
+            console.log(distance);
             if (distance > diameter) {
               diameter = distance;
               source = node.id();
