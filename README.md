@@ -2,7 +2,7 @@
 
 This repository contains a React application for editing and analyzing graphs. The application offers various features, including **node and edge editing**, **graph algorithm execution**, and **graph export/import**. You can try it out [here](https://jvitorcarv.github.io/simple-graphs/).
 
-![image](https://github.com/user-attachments/assets/d19ad24f-4984-4b07-9dd9-b557d5cd3855)
+![image](https://github.com/user-attachments/assets/c00c1c6a-64ad-45a3-a8a6-665328aec126)
 
 ---
 
