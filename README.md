@@ -2,6 +2,8 @@
 
 Este repositório contém uma aplicação React para edição e análise de gráficos. A aplicação oferece diversas funcionalidades, incluindo a edição de nós e arestas, a execução de algoritmos em grafos, e a exportação/importação de grafos.
 
+Para testar, você pode acessar https://jvitorcarv.github.io/simple-graphs/
+
 ## Estrutura do Projeto
 
 A aplicação é dividida em diferentes componentes, cada um responsável por uma parte específica do editor de gráficos. Abaixo estão os principais componentes:
