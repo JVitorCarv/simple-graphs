@@ -1,79 +1,88 @@
-# Graph Editor README
+# Simple Graphs
 
-Este repositório contém uma aplicação React para edição e análise de gráficos. A aplicação oferece diversas funcionalidades, incluindo a edição de nós e arestas, a execução de algoritmos em grafos, e a exportação/importação de grafos.
+This repository contains a React application for editing and analyzing graphs. The application offers various features, including **node and edge editing**, **graph algorithm execution**, and **graph export/import**. You can try it out [here](https://jvitorcarv.github.io/simple-graphs/).
 
-Para testar, você pode acessar https://jvitorcarv.github.io/simple-graphs/
+![image](https://github.com/user-attachments/assets/d19ad24f-4984-4b07-9dd9-b557d5cd3855)
 
-## Estrutura do Projeto
+---
 
-A aplicação é dividida em diferentes componentes, cada um responsável por uma parte específica do editor de gráficos. Abaixo estão os principais componentes:
+## Project Structure
 
-### 1. NodeEditor
+The application is divided into different components, each responsible for a specific part of the graph editor. Here are the main components:
 
-Este componente é responsável pela edição de nós no gráfico. Oferece as seguintes funcionalidades:
+### 1. Node Editor
 
-- Adicionar nós
-- Editar nós existentes
-- Excluir nós
-- Limpar todos os nós
+This component is responsible for editing nodes in the graph. It offers the following functionalities:
 
-### 2. MoreInfosEditor
+* Add nodes
+* Edit existing nodes
+* Delete nodes
+* Clear all nodes
 
-Fornece informações adicionais sobre o gráfico, incluindo:
+### 2. More Infos Editor
 
-- Ordem e tamanho do gráfico
-- Verificação de adjacência entre dois nós
-- Obtenção do grau de um nó
-- Obtenção de nós adjacentes a um nó
+Provides additional information about the graph, including:
 
-### 3. EdgeEditor
+* Graph order and size
+* Adjacency check between two nodes
+* Getting the degree of a node
+* Getting adjacent nodes to a node
 
-Responsável pela edição de arestas no gráfico. Oferece funcionalidades semelhantes ao `NodeEditor`, incluindo:
+### 3. Edge Editor
 
-- Adicionar arestas
-- Editar arestas existentes
-- Excluir arestas
-- Limpar todas as arestas
+Responsible for editing edges in the graph. It offers similar functionalities to `NodeEditor`, including:
 
-### 4. AlgorithmsEditor
+* Add edges
+* Edit existing edges
+* Delete edges
+* Clear all edges
 
-Este componente permite a execução de algoritmos no gráfico, atualmente incluindo:
+### 4. Algorithms Editor
 
-- Algoritmo de Dijkstra
-- Cálculo do diâmetro do gráfico
+This component allows for the execution of algorithms on the graph, currently including:
+
+* Dijkstra's algorithm
+* Graph diameter calculation
 
 ### 5. Footer
 
-O rodapé da aplicação contém links úteis, ícones de exportação/importação e uma opção para selecionar a direção do gráfico.
+The application footer contains useful links, export/import icons, and an option to select the graph's direction.
 
-## Como Executar a Aplicação
+---
 
-Para executar a aplicação, siga os passos abaixo:
+## How to Run the Application
 
-1. Certifique-se de ter o Node.js instalado em seu sistema.
+To run the application, follow these steps:
 
-2. Clone este repositório usando o comando:
-   ```bash
-   git clone https://github.com/SEU_USUARIO/nome-do-repositorio.git
-   ```
+1.  Make sure you have Node.js installed on your system.
+2.  Clone this repository using the command:
 
-3. Navegue até o diretório do projeto:
-   ```bash
-   cd nome-do-repositorio
-   ```
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/repository-name.git](https://github.com/YOUR_USERNAME/repository-name.git)
+    ```
 
-4. Instale as dependências usando o comando:
-   ```bash
-   npm install
-   ```
+3.  Navigate to the project directory:
 
-5. Inicie a aplicação com:
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    cd repository-name
+    ```
 
-A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
+4.  Install the dependencies using the command:
 
-## Dependências Externas
+    ```bash
+    npm install
+    ```
 
-A aplicação utiliza a biblioteca Cytoscape para visualização e manipulação de gráficos. Certifique-se de verificar a [documentação do Cytoscape](https://js.cytoscape.org/) para obter mais informações sobre suas funcionalidades.
+5.  Start the application with:
+
+    ```bash
+    npm run dev
+    ```
+
+    The application will be available [locally](http://localhost:3000).
+
+---
+
+## External Dependencies
+
+The application uses the **Cytoscape** library for graph visualization and manipulation. Be sure to check the [Cytoscape documentation](https://js.cytoscape.org/) for more information on its functionalities.
